@@ -1,11 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import './transaction.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(
+    MaterialApp(
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('pt', 'BR'), // Brazil, no country code
+      ],
+      home: MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    initializeDateFormatting();
     return MaterialApp(
       title: "FlutterApp",
       home: MyHomePage(),
@@ -82,7 +100,7 @@ class MyHomePage extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            tx.date.toString(),
+                            DateFormat.yMMMd('pt').format(tx.date),
                             style: TextStyle(
                               color: Colors.grey,
                             ),
