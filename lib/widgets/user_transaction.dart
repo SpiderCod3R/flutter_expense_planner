@@ -14,28 +14,28 @@ class _UserTransactionState extends State<UserTransaction> {
     Transaction(
       id: "t1",
       title: "Pichau Gaming Wave - KIT",
-      ammout: 203.99,
+      ammount: 203.99,
       date: DateTime.now(),
     ),
     Transaction(
       id: "t2",
       title: "Gabinete Gougar",
-      ammout: 329.99,
+      ammount: 329.99,
       date: DateTime.now(),
     ),
   ];
 
-  void _addNewTransaction(String titleInput, double ammoutInput) {
+  void _addNewTransaction(String titleInput, double ammountInput) {
     final Random random = new Random();
-    final newTx = Transaction(
+    final transaction = Transaction(
       title: titleInput,
-      ammout: ammoutInput,
+      ammount: ammountInput,
       date: DateTime.now(),
       id: random.nextInt(999).toString(),
     );
 
     setState(() {
-      _userTransactions.add(newTx);
+      _userTransactions.add(transaction);
     });
   }
 
