@@ -28,7 +28,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     initializeDateFormatting();
     return MaterialApp(
-      title: "FlutterApp",
+      title: "Personal Exepenses",
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        accentColor: Colors.amber,
+      ),
       home: MyHomePage(),
     );
   }
