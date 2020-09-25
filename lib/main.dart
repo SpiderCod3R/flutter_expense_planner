@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'dart:math';
 
+import './widgets/chart.dart';
 import './widgets/transctions_list.dart';
 import './widgets/new_transaction.dart';
 import './models/transaction.dart';
@@ -75,6 +76,17 @@ class _MyHomePageState extends State<MyHomePage> {
     // ),
   ];
 
+  //Propertie
+  List<Transaction> get _recentTransactions {
+    return _userTransactions.where((element) {
+      return element.date.isAfter(
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
+      );
+    }).toList();
+  }
+
   void _addNewTransaction(String titleInput, double ammountInput) {
     final Random random = new Random();
     final transaction = Transaction(
@@ -119,14 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Card(
-                color: Colors.blue,
-                child: Text("CHART"),
-                elevation: 5,
-              ),
-            ),
+            Chart(_recentTransactions),
             TransactionList(_userTransactions),
           ],
         ),
