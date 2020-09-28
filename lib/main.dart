@@ -66,18 +66,36 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    // Transaction(
-    //   id: "t1",
-    //   title: "Pichau Gaming Wave - KIT",
-    //   ammount: 203.99,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: "t2",
-    //   title: "Gabinete Gougar",
-    //   ammount: 329.99,
-    //   date: DateTime.now(),
-    // ),
+    Transaction(
+      id: DateTime.now().toString(),
+      title: "Pichau Gaming Wave - KIT",
+      ammount: 203.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: DateTime.now().toString(),
+      title: "Gabinete RedDragon HamHorn",
+      ammount: 329.99,
+      date: DateTime.parse("2020-09-25"),
+    ),
+    Transaction(
+      id: DateTime.now().toString(),
+      title: "Maleta Customizada",
+      ammount: 299.99,
+      date: DateTime.parse("2020-09-23"),
+    ),
+    Transaction(
+      id: DateTime.now().toString(),
+      title: "Maleta Customizada 2",
+      ammount: 299.99,
+      date: DateTime.parse("2020-09-23"),
+    ),
+    Transaction(
+      id: DateTime.now().toString(),
+      title: "Fonte 700w",
+      ammount: 499.99,
+      date: DateTime.parse("2020-09-22"),
+    ),
   ];
 
   //Propertie
