@@ -126,6 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
+      // SingleChildScrollView Permite deslizamento pela tela
       body: SingleChildScrollView(
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.start,
