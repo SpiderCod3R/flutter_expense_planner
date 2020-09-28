@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_rounded_date_picker/rounded_picker.dart';
 
 class NewTransaction extends StatefulWidget {
   final Function addNewTransaction;
@@ -37,17 +38,14 @@ class _NewTransactionState extends State<NewTransaction> {
   }
 
   void _presetDatePicker() {
-    showDatePicker(
+    showRoundedDatePicker(
       context: context,
+      height: 350,
       initialDate: DateTime.now(),
-      firstDate: DateTime(2020),
+      firstDate: DateTime(2016),
       lastDate: DateTime.now(),
-      builder: (context, child) {
-        return Theme(
-          data: ThemeData.dark(),
-          child: child,
-        );
-      },
+      borderRadius: 10,
+      theme: ThemeData(primarySwatch: Colors.purple),
     ).then((pickedDate) {
       if (pickedDate == null) {
         return;
@@ -56,7 +54,30 @@ class _NewTransactionState extends State<NewTransaction> {
         _selectedDate = pickedDate;
       });
     });
-    print("...");
+
+    // showDatePicker(
+    //   context: context,
+    //   initialDate: DateTime.now(),
+    //   firstDate: DateTime(2020),
+    //   lastDate: DateTime.now(),
+    //   builder: (context, child) {
+    //     return Theme(
+    //       data: ThemeData.dark().copyWith(
+    //         primaryColor: Colors.red, //Head background
+    //         accentColor: Colors.red, //selection color
+    //         dialogBackgroundColor: Colors.amber, //Background color
+    //       ),
+    //       child: child,
+    //     );
+    //   },
+    // ).then((pickedDate) {
+    //   if (pickedDate == null) {
+    //     return;
+    //   }
+    //   setState(() {
+    //     _selectedDate = pickedDate;
+    //   });
+    // });
   }
 
   @override
