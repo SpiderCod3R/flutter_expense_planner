@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 import 'dart:math';
 
 import './widgets/chart.dart';
@@ -90,13 +91,16 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
-  void _addNewTransaction(String titleInput, double ammountInput) {
-    final Random random = new Random();
+  void _addNewTransaction(
+    String titleInput,
+    double ammountInput,
+    DateTime chosenDate,
+  ) {
     final transaction = Transaction(
       title: titleInput,
       ammount: ammountInput,
-      date: DateTime.now(),
-      id: random.nextInt(999).toString(),
+      date: chosenDate,
+      id: '${DateTime.now().toString()}',
     );
 
     setState(() {
@@ -115,6 +119,12 @@ class _MyHomePageState extends State<MyHomePage> {
         );
       },
     );
+  }
+
+  void _deleteTransaction(String id) {
+    setState(() {
+      _userTransactions.removeWhere((tx) => tx.id == id);
+    });
   }
 
   @override
@@ -136,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Chart(_recentTransactions),
-            TransactionList(_userTransactions),
+            TransactionList(_userTransactions, _deleteTransaction),
           ],
         ),
       ),
