@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
@@ -21,7 +21,6 @@ void main() {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: [
-        const Locale('en', 'US'), // USA, no country code
         const Locale('pt', 'BR'), // Brazil, no country code
       ],
       home: MyApp(),
@@ -73,36 +72,36 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _showChart = false;
 
   final List<Transaction> _userTransactions = [
-    // Transaction(
-    //   id: DateTime.now().toString(),
-    //   title: "Pichau Gaming Wave - KIT",
-    //   ammount: 203.99,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: DateTime.now().toString(),
-    //   title: "Gabinete RedDragon HamHorn",
-    //   ammount: 329.99,
-    //   date: DateTime.parse("2020-09-25"),
-    // ),
-    // Transaction(
-    //   id: DateTime.now().toString(),
-    //   title: "Maleta Customizada",
-    //   ammount: 299.99,
-    //   date: DateTime.parse("2020-09-23"),
-    // ),
-    // Transaction(
-    //   id: DateTime.now().toString(),
-    //   title: "Maleta Customizada 2",
-    //   ammount: 299.99,
-    //   date: DateTime.parse("2020-09-23"),
-    // ),
-    // Transaction(
-    //   id: DateTime.now().toString(),
-    //   title: "Fonte 700w",
-    //   ammount: 499.99,
-    //   date: DateTime.parse("2020-09-22"),
-    // ),
+    Transaction(
+      id: DateTime.now().toString(),
+      title: "Pichau Gaming Wave - KIT",
+      ammount: 203.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: DateTime.now().toString(),
+      title: "Gabinete RedDragon HamHorn",
+      ammount: 329.99,
+      date: DateTime.parse("2020-09-25"),
+    ),
+    Transaction(
+      id: DateTime.now().toString(),
+      title: "Maleta Customizada",
+      ammount: 299.99,
+      date: DateTime.parse("2020-09-23"),
+    ),
+    Transaction(
+      id: DateTime.now().toString(),
+      title: "Maleta Customizada 2",
+      ammount: 299.99,
+      date: DateTime.parse("2020-09-23"),
+    ),
+    Transaction(
+      id: DateTime.now().toString(),
+      title: "Fonte 700w",
+      ammount: 499.99,
+      date: DateTime.parse("2020-09-22"),
+    ),
   ];
 
   //Propertie
