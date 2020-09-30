@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_rounded_date_picker/rounded_picker.dart';
 
+import '../widgets/adaptive_flat_button.dart';
+
 class NewTransaction extends StatefulWidget {
   final Function addNewTransaction;
 
@@ -37,10 +39,10 @@ class _NewTransactionState extends State<NewTransaction> {
     Navigator.of(context).pop();
   }
 
-  void _presetDatePicker(double value) {
+  void _presetDatePicker() {
     showRoundedDatePicker(
       context: context,
-      height: value,
+      height: MediaQuery.of(context).size.height * 0.45,
       initialDate: DateTime.now(),
       firstDate: DateTime(2016),
       lastDate: DateTime.now(),
@@ -118,15 +120,7 @@ class _NewTransactionState extends State<NewTransaction> {
                             : 'Data Selecionada - ${DateFormat.yMd('pt').format(_selectedDate)}',
                       ),
                     ),
-                    FlatButton(
-                      textColor: Theme.of(context).primaryColor,
-                      child: Text(
-                        'Choose Date',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      onPressed: () => _presetDatePicker(
-                          MediaQuery.of(context).size.height * 0.45),
-                    )
+                    AdaptiveFlatButton('Choose Date', _presetDatePicker),
                   ],
                 ),
               ),
