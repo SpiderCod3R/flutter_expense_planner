@@ -6,8 +6,8 @@ workflows:
         name: Expense Planner iOS App with Flutter Module
         environment:
             vars:
-                FLUTTER_MODULE_DIR: "{{ ~/flutter/bin/flutter }}"
-                HOST_IOS_APP_DIR: "{{ ~/flutter_expense_planner }}"
+                FLUTTER_MODULE_DIR: "{{ $HOME/flutter/bin/flutter }}"
+                HOST_IOS_APP_DIR: "{{ $HOME/flutter_expense_planner }}"
                 XCODE_PROJECT: "{{ EXPENSE PLANNER PROJECT }}"
                 XCODE_SCHEME: "{{ EXPENSE PLANNER }}"
             xcode: edge
